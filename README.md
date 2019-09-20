@@ -26,7 +26,7 @@ docker ps
 docker exec -it <container_id> /bin/sh
 ```
 
-## jmap java container
+## Launch jmap for the running Java process inside the Docker container
 ```sh
 docker exec -it <container_id> jmap -histo:live `docker exec -it <container_id> pidof java | tr -d '\r\n'`
 ```
