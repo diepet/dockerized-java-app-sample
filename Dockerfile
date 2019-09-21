@@ -1,5 +1,6 @@
 FROM openjdk:8-jdk-alpine
-VOLUME /tmp
+
+# Copy the Spring Boot fat JAR built as /app.jar inside the container
 COPY target/*.jar app.jar
 
 # Debug Port
@@ -9,7 +10,7 @@ EXPOSE 8010
 # HTTP Port
 EXPOSE 8080
 
-
+# Java launcher
 ENTRYPOINT [ \
 	"java", \
 	"-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n", \
